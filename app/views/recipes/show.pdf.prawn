@@ -1,3 +1,5 @@
+require "open-uri"
+
 prawn_document() do |pdf|
   pdf.text @recipe.name
   pdf.move_down 100
