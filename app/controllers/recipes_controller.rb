@@ -2,6 +2,12 @@ class RecipesController < ApplicationController
 
   load_and_authorize_resource except: [:index, :flagged]
 
+
+  # lists all available recipes
+  #
+  # GET `/recipes`
+  # 
+  # @return [HTML] 200  
   def index
     page = params[:page] || 1
     per_page = 5
