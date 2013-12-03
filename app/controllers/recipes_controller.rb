@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   load_and_authorize_resource except: [:index, :flagged]
 
 
-  # lists all available recipes
+  # List all available recipes
   #
   # GET `/recipes`
   # 
@@ -19,6 +19,21 @@ class RecipesController < ApplicationController
   def new
   end
 
+
+  # Create a recipe
+  # 
+  # POST `/recipes`
+  # 
+  # Example:
+  #
+  # curl -X POST http://localhost:3000/recipes
+  #
+  # @param [Hash] recipe: The hash containing the data for the new recipe
+  #
+  # @return [HTML] 301: redirect to the show page for the created recipe
+  # 
+  # @return [HTML] 401: unauthorized access to the method
+  #
   def create
     if @recipe.save
       redirect_to @recipe, notice: 'Recipe was successfully created!'
